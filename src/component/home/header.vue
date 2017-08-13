@@ -1,6 +1,7 @@
 <template>
-  <header>
-    <mt-header fixed title="固定在顶部"></mt-header>
+  <header class="header">
+    <mt-header fixed title="微商"></mt-header>
+    <div></div>
   </header>
 </template>
 
@@ -10,8 +11,12 @@ export default {
 }
 </script>
 
-<style>
-
+<style lang="less">
+  .header {
+    div {
+      height: 40px;
+    }
+  }
 </style>
 
 

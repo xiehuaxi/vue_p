@@ -14,7 +14,11 @@ Vue.use(VueRouter);
 Vue.use(MintUI);
 
 // 导入自己的组件
-import router from "./router";
+// 导入过滤器
+import "./filter.js"
+import router from "./router.js";
+// import config from "../../js/config";
+
 
 // 二、导入我们自己的模块
 import ComptApp from "../component/App.vue";

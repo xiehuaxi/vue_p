@@ -1,5 +1,5 @@
 <template>
-  <footer>
+  <footer class="footer">
     <nav class="mui-bar mui-bar-tab">
 			<a class="mui-tab-item" href="#tabbar">
 				<span class="mui-icon mui-icon-home"></span>
@@ -18,6 +18,7 @@
 				<span class="mui-tab-label">个人中心</span>
 			</a>
 		</nav>
+    <div></div>
   </footer>
 </template>
 
@@ -27,6 +28,10 @@ export default {
 }
 </script>
 
-<style>
-
+<style lang="less">
+  .footer {
+    div {
+      height: 50px;
+    }
+  }
 </style>
