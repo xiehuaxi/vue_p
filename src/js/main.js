@@ -2,10 +2,16 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import VueResource from "vue-resource";
+// 导入mintUI和mui
+import MintUI from "mint-ui";
+import "mint-ui/lib/style.css";
+import "mui/dist/css/mui.css";
+import "mui/examples/hello-mui/css/icons-extra.css"
 
 // 手动启用
 Vue.use(VueResource);
 Vue.use(VueRouter);
+Vue.use(MintUI);
 
 // 导入自己的组件
 import router from "./router";
