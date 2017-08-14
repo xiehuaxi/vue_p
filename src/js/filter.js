@@ -1,6 +1,6 @@
 import Vue from "vue";
 
-Vue.filter("formatDate",function(val,format){
+Vue.filter("formatDate",function(val,format = "YYYY-MM-DD"){
   let yReg = /YYYY/i;
   let mReg = /MM/i;
   let dReg = /DD/i;

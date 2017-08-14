@@ -3,6 +3,8 @@ export default {
   doMain: doMain,
   getLunbo: doMain + "/api/getlunbo",
   newsList: doMain + "/api/getnewslist" ,
-  newsDetails: doMain + "/api/getnew/"
+  newsDetails: doMain + "/api/getnew/",
+  commentPut: doMain + "/api/postcomment/",
+  commentList: doMain + "/api/getcomments/"
   
 }
