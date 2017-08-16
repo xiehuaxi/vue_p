@@ -17,7 +17,9 @@
     <div>
       <div class="mui-card" v-for="item in imageList" :key="item.id">
         <router-link :to="'/photo/details/' + item.id">
-          <div class="mui-card-header mui-card-media" :style="'height:40vw;background-image:url('+ item.img_url +')'"></div>
+          <div class="mui-card-header">
+            <img v-lazy="item.img_url">
+          </div>
         </router-link>
         <div class="mui-card-content">
           <div class="mui-card-content-inner">
@@ -112,6 +114,12 @@ export default {
       background-color: #e6e6e6;
       text-align: center;
     }
+  }
+}
+.photo-list {
+  .mui-card-header img {
+    width: 100%;
+    height: 100%;
   }
 }
 </style>

@@ -10,6 +10,12 @@ import "mui/examples/hello-mui/css/icons-extra.css"
 
 // import VuePreview from 'vue-preview'
 // Vue.use(VuePreview);
+import VuePicturePreview from "vue-picture-preview";
+Vue.use(VuePicturePreview);
+
+import { Lazyload } from 'mint-ui';
+
+Vue.use(Lazyload);
 
 // 手动启用
 Vue.use(VueResource);
