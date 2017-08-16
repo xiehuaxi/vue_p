@@ -14,7 +14,13 @@ export default {
   photoImageList: doMain + "/api/getimages/", // 图片数据列表
   photoCategory: doMain + "/api/getimgcategory", // 图片分类
   photoHumImages: doMain + "/api/getthumimages/", // 缩略图
-  photoInfo: doMain + "/api/getimageInfo/" // 图片详情
+  photoInfo: doMain + "/api/getimageInfo/", // 图片详情
+
+    // 商品
+  goodsList: doMain + "/api/getgoods", //获取商品
+  goodsInfo: doMain + "/api/goods/getdesc/", // 商品图文介绍
+  goodShopcar: doMain + "/api/goods/getshopcarlist/", //购物车
+  goodsPrice: doMain + "/api/goods/getinfo/", //商品价格
 
   
   
