@@ -15,7 +15,7 @@ export default new VueRouter({
     {path: "/news/list", component: CnewsList},
     {path: "/news/details/:id", component: CnewsDetails},
     // 图片分享
-    {path: "/photo/list/:id?", component: CphotoList},
+    {path: "/photo/list/:id", component: CphotoList},
     {path: "/photo/details/:id", component: CphotoDetails},
   ]
 });

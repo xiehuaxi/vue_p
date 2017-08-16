@@ -8,6 +8,9 @@ import "mint-ui/lib/style.css";
 import "mui/dist/css/mui.css";
 import "mui/examples/hello-mui/css/icons-extra.css"
 
+// import VuePreview from 'vue-preview'
+// Vue.use(VuePreview);
+
 // 手动启用
 Vue.use(VueResource);
 Vue.use(VueRouter);

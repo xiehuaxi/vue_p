@@ -1,9 +1,9 @@
 <template>
   <section class="photo-list">
     <v-title :title="title"></v-title>
-    <div class="list-nav">
-      <ul id="segmentedControl" class="mui-segmented-control">
-        <li class="list-nav">
+    <div id="wrapper">
+      <ul>
+        <li>
           <router-link to="/photo/list/0">全部</router-link>
         </li>
         <li v-for="item in catgarys" :key="item.id" class="list-nav">
@@ -22,7 +22,7 @@
         <div class="mui-card-content">
           <div class="mui-card-content-inner">
             <h3>{{item.title}}</h3>
-            <div style="color: #333;" v-html="item.content"></div>
+            <div style="color: #333;" v-html="item.zhaiyao"></div>
           </div>
         </div>
       </div>
@@ -32,9 +32,10 @@
 
 <script>
 import config from "../../js/config.js";
-import Ctitle from "../common/title.vue"
+import Ctitle from "../common/title.vue";
+import IScroll from "iscroll";
 export default {
-  components:{
+  components: {
     "v-title": Ctitle
   },
   data() {
@@ -49,30 +50,43 @@ export default {
     getphotoCategory() {
       let url = config.photoCategory;
       this.$http.get(url).then(rep => {
-        rep.body.status == 0 && (this.catgarys = rep.body.message);
+        if (rep.body.status == 0) {
+          this.catgarys = rep.body.message;
+          console.log(this.$el);
+          this.$el.querySelector("#wrapper ul").style.width = 100 * this.catgarys.length + "px";
+          new IScroll('#wrapper',{
+              scrollX: true,
+              scrollY: false,
+              mouseWheel: true,
+              eventPassthrough: true, 
+              click: true
+
+            });
+        }
       });
     },
     // 图片列表
     getphotoImageList() {
-      let url = config.photoImageList + (this.$route.params.id || 0);
+      let url = config.photoImageList + (this.$route.params.id);
       this.$http.get(url).then(rep => {
         let body = rep.body;
         if (body.status == 0) {
-          this.imageList = body.message.map(function(val,i){
-            val.img_url = config.imgDomain + val.img_url; 
+          this.imageList = body.message.map(function (val, i) {
+            val.img_url = config.imgDomain + val.img_url;
             return val;
+            
           })
 
         }
       })
     },
   },
-    // 点击分类列表切换
-    watch:{
-      $route(){
-        this.getphotoImageList(this.$route.params.id);
-      }
-    },
+  // 点击分类列表切换
+  watch: {
+    $route() {
+      this.getphotoImageList(this.$route.params.id);
+    }
+  },
   created() {
     this.getphotoCategory();
     this.getphotoImageList();
@@ -84,23 +98,20 @@ export default {
 </script>
 
 <style lang="less">
-.photo-list {
-  padding: 10px 10px;
-  .list-nav {
-    padding: 0px 10px;
-    ul {
-      padding-left: 0;
-      li {
-        list-style: none;
-        float: left;
-        padding: 5px 10px;
-      }
+#wrapper {
+  position: relative;
+  overflow: hidden;
+  ul {
+    list-style: none;
+    padding: 0;
+    // width: 1200px;
+    li {
+      padding: 5px 0;
+      width: 90px;
+      float: left;
+      background-color: #e6e6e6;
+      text-align: center;
     }
-  }
-
-
-  .mui-control-item {
-    width: 50px;
   }
 }
 </style>
